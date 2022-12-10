@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/card_background_global"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_positions"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/menu_position" />
+        <item
+            android:id="@+id/nav_scada"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_scada" />
+        <item
+            android:id="@+id/nav_inspection"
+            android:icon="@drawable/ic_check_circle"
+            android:title="@string/menu_routine_inspection" />
+        <item
+            android:id="@+id/nav_resume"
+            android:icon="@drawable/ic_show_inspections"
+            android:title="@string/menu_resume" />
+        <item
+            android:id="@+id/nav_products"
+            android:icon="@drawable/ic_edit"
+            android:title="@string/menu_products" />
+        <item
+            android:id="@+id/nav_retirement"
+            android:icon="@drawable/ic_edit"
+            android:title="@string/menu_retirement" />
+
+        <item
+            android:id="@+id/nav_sync_options"
+            android:icon="@drawable/ic_non_sync"
+            android:title="@string/menu_sync" />
+
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/ic_login"
+            android:title="@string/menu_login" />
+    </group>
+</menu>

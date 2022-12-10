@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_login">
+
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.safeline.safelinecranes.ui.login.LoginFragment"
+        android:label="@string/menu_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_nav_login_to_nav_register"
+            app:destination="@id/nav_register"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_nav_login_to_nav_scada"
+            app:destination="@id/nav_scada" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_register"
+        android:name="com.safeline.safelinecranes.ui.register.RegisterFragment"
+        android:label="@string/menu_register"
+        tools:layout="@layout/register_fragment" >
+        <action
+            android:id="@+id/action_nav_register_to_nav_login"
+            app:destination="@id/nav_login"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_scada"
+        android:name="com.safeline.safelinecranes.ui.scada.VesselScadaFragment"
+        android:label="Mooring Plan"
+        tools:layout="@layout/fragment_vessel_scada" />
+
+    <fragment
+        android:id="@+id/nav_positions"
+        android:name="com.safeline.safelinecranes.ui.positions.PositionListFragment"
+        android:label="@string/menu_position"
+        tools:layout="@layout/fragment_position_list" />
+
+    <fragment
+        android:id="@+id/nav_products"
+        android:name="com.safeline.safelinecranes.ui.products.ProductFragment"
+        android:label="@string/menu_products"
+        tools:layout="@layout/fragment_product" >
+        <action
+            android:id="@+id/action_nav_products_to_nav_ropetype"
+            app:destination="@id/nav_ropetype" />
+        <action
+            android:id="@+id/action_nav_products_to_nav_ropes"
+            app:destination="@id/nav_ropes" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_ropetype"
+        android:name="com.safeline.safelinecranes.ui.products.RopeTypeListFragment"
+        android:label="@string/menu_rope_type"
+        tools:layout="@layout/fragment_rope_type_list" />
+
+    <fragment
+        android:id="@+id/nav_ropes"
+        android:name="com.safeline.safelinecranes.ui.products.RopeListFragment"
+        android:label="Wire list"
+        tools:layout="@layout/fragment_rope_list" />
+
+    <fragment
+        android:id="@+id/nav_inspection"
+        android:name="com.safeline.safelinecranes.ui.inspection.SelectPositionForInspectionFragment"
+        android:label="Wire Inspections"
+        tools:layout="@layout/fragment_select_position_for_inspection" >
+        <action
+            android:id="@+id/action_nav_inspection_to_nav_new_inspection_parameters"
+            app:destination="@id/nav_new_inspection_parameters" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_new_inspection_parameters"
+        android:name="com.safeline.safelinecranes.ui.inspection.InitializeInspectionFragment"
+        android:label="Inspection Parameters"
+        tools:layout="@layout/fragment_initialize_inspection" >
+        <action
+            android:id="@+id/action_nav_new_inspection_parameters_to_nav_inspection"
+            app:destination="@id/nav_inspection" />
+        <action
+            android:id="@+id/action_nav_new_inspection_parameters_to_nav_results"
+            app:destination="@id/nav_results" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_results"
+        android:name="com.safeline.safelinecranes.ui.results.InspectionResultsFragment"
+        android:label="Inspection Results"
+        tools:layout="@layout/fragment_inspection_results" >
+        <action
+            android:id="@+id/action_nav_results_to_nav_resume_inspections"
+            app:destination="@id/nav_resume_inspections" />
+        <action
+            android:id="@+id/action_nav_results_to_nav_inspection"
+            app:destination="@id/nav_inspection" />
+        <action
+            android:id="@+id/action_nav_results_to_nav_resume"
+            app:destination="@id/nav_resume" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_resume"
+        android:name="com.safeline.safelinecranes.ui.resume.SelectPositionForResumeFragment"
+        android:label="Show Inspections"
+        tools:layout="@layout/fragment_select_position_for_resume" >
+        <action
+            android:id="@+id/action_nav_resume_to_nav_resume_inspections"
+            app:destination="@id/nav_resume_inspections" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_retirement"
+        android:name="com.safeline.safelinecranes.ui.retire.RetireFragment"
+        android:label="@string/menu_retirement"
+        tools:layout="@layout/fragment_retire" >
+        <action
+            android:id="@+id/action_nav_retirement_to_nav_retirement_details"
+            app:destination="@id/nav_retirement_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_retirement_details"
+        android:name="com.safeline.safelinecranes.ui.retire.RopeRetireDetailsFragment"
+        android:label="@string/menu_retirement_details"
+        tools:layout="@layout/fragment_rope_retire_details" >
+        <action
+            android:id="@+id/action_nav_retirement_details_to_nav_retirement"
+            app:destination="@id/nav_retirement" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_resume_inspections"
+        android:name="com.safeline.safelinecranes.ui.resume.ResumeInspectionFragment"
+        android:label="Resume Inspection"
+        tools:layout="@layout/fragment_resume_inspection" >
+        <action
+            android:id="@+id/action_nav_resume_inspections_to_nav_results"
+            app:destination="@id/nav_results" />
+        <action
+            android:id="@+id/action_nav_resume_inspections_to_nav_resume"
+            app:destination="@id/nav_resume" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_sync_options"
+        android:name="com.safeline.safelinecranes.ui.sync.SyncSelectionFragment"
+        android:label="Synchronize Data"
+        tools:layout="@layout/fragment_sync_selection" >
+        <action
+            android:id="@+id/action_nav_sync_options_to_nav_sync"
+            app:destination="@id/nav_sync" />
+        <action
+            android:id="@+id/action_nav_sync_options_to_nav_get_data"
+            app:destination="@id/nav_get_data" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_sync"
+        android:name="com.safeline.safelinecranes.ui.sync.SyncFragment"
+        android:label="Synchronize Data"
+        tools:layout="@layout/fragment_sync" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_get_data"
+        android:name="com.safeline.safelinecranes.ui.sync.GetDataFragment"
+        android:label="Synchronize Data"
+        tools:layout="@layout/fragment_get_data" >
+    </fragment>
+
+</navigation>

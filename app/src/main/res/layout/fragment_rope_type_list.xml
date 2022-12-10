@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/card_background_global"
+    tools:context=".ui.products.RopeTypeListFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/product_type_recycler_view"
+        android:padding="4dp"
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"/>
+
+    <Button
+        android:id="@+id/btn_rope_type_insert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="#373A3C"
+        android:text="Add new Wire Type"
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>

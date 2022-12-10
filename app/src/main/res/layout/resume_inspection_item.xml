@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_background_global"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/inspection_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="21/5/2020"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/inspection_type_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inspection_date"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Type: "
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/inspection_type_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inspection_date"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_toEndOf="@id/inspection_type_lbl"
+            android:text="Routine Inspection" />
+
+        <TextView
+            android:id="@+id/inspection_location_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inspection_type_lbl"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Location: "
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/inspection_location_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inspection_type_text"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_toEndOf="@id/inspection_location_lbl"
+            android:text="Amsterdam" />
+
+        <TextView
+            android:id="@+id/inspection_finished_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inspection_location_lbl"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Finished: "
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/inspection_finished_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inspection_location_text"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_toEndOf="@id/inspection_finished_lbl"
+            android:text="YES" />
+
+        <Button
+            android:id="@+id/btn_inspections_details"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="33dp"
+            android:src="@drawable/ic_baseline_delete_outline_24"
+            android:text="View" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

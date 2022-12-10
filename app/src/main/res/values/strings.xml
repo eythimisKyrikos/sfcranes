@@ -1,0 +1,130 @@
+<resources>
+    <string name="app_name">SAFELINE CRANES</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_login">Login</string>
+    <string name="menu_products">Our Wires</string>
+    <string name="menu_retirement">Wire Retirement</string>
+    <string name="menu_retirement_details">Product Retirement Details</string>
+    <string name="menu_routine_inspection">Routine Inspection</string>
+    <string name="menu_detailed_inspection">Detailed Inspection</string>
+    <string name="menu_position">Positions</string>
+    <string name="menu_rope">Rope List</string>
+    <string name="menu_rope_type">Wire Types</string>
+    <string name="menu_sync">Synchronize</string>
+    <string name="menu_resume">Show Inspections</string>
+    <string name="menu_register">Register User</string>
+    <string name="menu_scada">Mooring Plan</string>
+
+    <!-- Login Fragment-->
+    <string name="login_title">Insert Login Credentials</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+
+    <!-- Add Position fragment -->
+    <string name="position_list_type_name_lbl">Name: </string>
+    <string name="btn_insert_position">Add New Position</string>
+    <string name="lbl_add_position_header">Add new position</string>
+    <string name="lbl_edit_position_header">Edit position</string>
+    <string name="lbl_position_name">Position Name</string>
+    <string name="btn_modify_position">Edit position in plan</string>
+    <string name="btn_modify_rope_position">Modify Ropes in position</string>
+    <string name="btn_save_position">Save position</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Server IP Address</string>
+    <string name="reply_title">00.00.00.00</string>
+    <string name="signature_subtitle">Server Port</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- PRODUCTS FRAGMENT -->
+    <string name="products_header">Secondary Wires</string>
+    <string name="products_details">Select an action</string>
+    <string name="products_btn1">Wires</string>
+    <string name="products_btn2">Wire Types</string>
+    <string name="products_footer">Secondary wire types are defined only once at first. Then you should insert the secondary wires and registered them in their respective positions. When the operator conducts a new inspection the correct secondary wire is taken based on the position and characteristics which are registered.</string>
+
+    <!-- ROPE TYPE ACTIVITY -->
+    <string name="product_header">Item Information</string>
+    <string name="product_info_header">Add information about the types of your mooring lines. You can find the following information on the certificates of your mooring line. You only have to insert it once and it will be available to you for all future inspections.</string>
+    <string name="wire_retire_header">List with all secondary wires to delete.</string>
+    <string name="product_type_lbl">Type</string>
+    <string name="product_type_in_last_position">Is this the current rope position?</string>
+    <string name="product_manufacturer_lbl">Manufacturer</string>
+    <string name="product_model_lbl">Model</string>
+    <string name="product_serial">Serial Number</string>
+    <string name="product_diameter">Diameter (mm)</string>
+    <string name="product_length">Length (m)</string>
+    <string name="product_material">Material</string>
+    <string name="product_date">Certificate Date</string>
+    <string name="product_work_length">Working Length</string>
+    <string name="product_breaking_force">Breaking Force (tn)</string>
+    <string name="product_work_hours">Total Work hours</string>
+    <string name="btn_product_save">Save</string>
+    <string name="btn_product_cancel">Cancel</string>
+    <string name="btn_product_back">Back</string>
+
+    <!-- ADD ROPE ACTIVITY -->
+    <string name="rope_position_lbl">Position</string>
+    <string name="rope_chain_lbl">Outer Rope</string>
+    <string name="rope_has_tail">Has Tail?</string>
+    <string name="rope_tail">Tail</string>
+    <string name="retire_lbl">Retire Wire?</string>retire_date
+    <string name="retire_date">Date of retirement</string>
+
+    <!-- INSPECTIONS -->
+    <string name="s_inspection_header">Synthetic Rope Inspection</string>
+    <string name="w_inspection_header">Wire Rope Inspection</string>
+    <string name="s_inspection_details">Select an action:</string>
+    <string name="s_inspection_btn1">Start Routine Inspection</string>
+    <string name="s_inspection_btn2">Start Detailed Inspection</string>
+    <string name="s_inspection_btn3">Resume Previous Inspection</string>
+    <string name="inspection_footer">Inspections should be performed frequently. Select the positions from the list in which you want to start an inspection. If you have unfinished inspections you can resume them later</string>
+
+    <!-- Sync Fragment -->
+    <string name="position_sync_name_lbl">Positions</string>
+    <string name="ropetypes_sync_name_lbl">Wire types</string>
+    <string name="ropes_sync_name_lbl">Wires</string>
+    <string name="inspection_sync_name_lbl">Inspections</string>
+    <string name="deleted_sync_name_lbl">Update Database</string>
+
+    <!-- Spinner With Jacket -->
+    <string-array name="jacket">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <!-- Position Types -->
+    <string-array name="position_type">
+        <item>Spring</item>
+        <item>Breast</item>
+        <item>Head/Stern Line</item>
+    </string-array>
+    <!-- Spinner Material -->
+    <string-array name="material">
+        <item>Steel</item>
+    </string-array>
+</resources>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/item_background_global"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/type_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Type:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/product_list_type_type_text_view_"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_toEndOf="@id/type_lbl"
+            android:text="type" />
+
+        <TextView
+            android:id="@+id/model_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Model:"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_toEndOf="@id/product_list_type_type_text_view_"/>
+
+        <TextView
+            android:id="@+id/product_list_type_model_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="model"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_toEndOf="@id/model_lbl" />
+
+        <TextView
+            android:id="@+id/diameter_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Diameter:"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_below="@id/type_lbl"/>
+
+        <TextView
+            android:id="@+id/product_list_type_diameter_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="diameter"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_below="@id/type_lbl"
+            android:layout_toEndOf="@id/diameter_lbl" />
+
+        <TextView
+            android:id="@+id/length_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Length:"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_below="@id/type_lbl"
+            android:layout_toEndOf="@id/product_list_type_diameter_text_view"/>
+
+        <TextView
+            android:id="@+id/product_list_type_length_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="length"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_below="@id/type_lbl"
+            android:layout_toEndOf="@id/length_lbl" />
+
+        <TextView
+            android:id="@+id/manufacturer_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manufacturer:"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_below="@id/diameter_lbl" />
+
+        <TextView
+            android:id="@+id/product_list_type_manufacturer_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="manufacturer"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_below="@id/diameter_lbl"
+            android:layout_toEndOf="@id/manufacturer_lbl"/>
+
+        <TextView
+            android:id="@+id/material_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Material:"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_below="@id/manufacturer_lbl"/>
+
+        <TextView
+            android:id="@+id/product_list_type_material_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="material"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_below="@id/manufacturer_lbl"
+            android:layout_toEndOf="@id/material_lbl" />
+
+        <ImageView
+            android:id="@+id/btn_product_type_delete"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_baseline_delete_outline_24"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

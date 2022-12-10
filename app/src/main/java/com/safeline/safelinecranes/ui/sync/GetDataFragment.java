@@ -1,0 +1,208 @@
+package com.safeline.safelinecranes.ui.sync;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.ResultReceiver;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+
+import com.safeline.safelinecranes.R;
+import com.safeline.safelinecranes.db.MigrationDbHelper;
+import com.safeline.safelinecranes.models.DeletedObject;
+import com.safeline.safelinecranes.models.FinishedResults;
+import com.safeline.safelinecranes.models.Position;
+import com.safeline.safelinecranes.models.Rope;
+import com.safeline.safelinecranes.models.RopeType;
+
+import java.util.List;
+
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link GetDataFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class GetDataFragment extends Fragment implements View.OnClickListener {
+
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+
+    private Context mContext;
+
+    private ImageView syncPositionIcon;
+    private ImageView syncRopesIcon;
+    private ImageView syncInspectionIcon;
+    private ImageView syncDeletedIcon;
+    private ImageView syncRopeTypesIcon;
+    private Button syncBtn;
+
+    public GetDataFragment() { }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext = context;
+    }
+
+    public static GetDataFragment newInstance(String param1, String param2) {
+        GetDataFragment fragment = new GetDataFragment();
+        Bundle args = new Bundle();
+//        args.putString(ARG_PARAM1, param1);
+//        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+//            mParam1 = getArguments().getString(ARG_PARAM1);
+//            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_get_data, container, false);
+
+        initView(view);
+        loadSyncList(view);
+        setButtons(view);
+
+        return view;
+    }
+
+    private void initView(View view) {
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
+        view.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if( keyCode == KeyEvent.KEYCODE_BACK ) {
+
+                    // leave this blank in order to disable the back press
+
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        });
+        syncPositionIcon = view.findViewById(R.id.btn_sync_icon);
+        syncRopesIcon = view.findViewById(R.id.ropes_sync_icon);
+        syncRopeTypesIcon = view.findViewById(R.id.ropetypes_sync_icon);
+        syncInspectionIcon = view.findViewById(R.id.inspection_sync_icon);
+        syncDeletedIcon = view.findViewById(R.id.results_sync_icon);
+        syncBtn  = view.findViewById(R.id.btn_sync);
+    }
+
+    private void setButtons(View view) {
+        syncBtn = view.findViewById(R.id.btn_get_data);
+        syncBtn.setOnClickListener(this);
+    }
+
+    private void loadSyncList(View view) {
+        MigrationDbHelper dbHelper = MigrationDbHelper.getInstance(mContext);
+        List<Position> posList = dbHelper.getAllNonSyncPositions();
+        if(posList.size() > 0) {
+            syncPositionIcon.setBackgroundResource(R.drawable.ic_non_sync);
+        } else {
+            syncPositionIcon.setBackgroundResource(R.drawable.ic_check_green);
+        }
+
+        List<RopeType> ropesTypes = dbHelper.getAllNonSyncRopeTypes();
+        if(ropesTypes.size() > 0) {
+            syncRopeTypesIcon.setBackgroundResource(R.drawable.ic_non_sync);
+        } else {
+            syncRopeTypesIcon.setBackgroundResource(R.drawable.ic_check_green);
+        }
+
+        List<Rope> ropes = dbHelper.getAllNonSyncRopes();
+        if(ropes.size() > 0) {
+            syncRopesIcon.setBackgroundResource(R.drawable.ic_non_sync);
+        } else {
+            syncRopesIcon.setBackgroundResource(R.drawable.ic_check_green);
+        }
+
+        List<DeletedObject> deletedItems = dbHelper.getDeletedObjects();
+        if(deletedItems.size() > 0) {
+            syncDeletedIcon.setBackgroundResource(R.drawable.ic_non_sync);
+        } else {
+            syncDeletedIcon.setBackgroundResource(R.drawable.ic_check_green);
+        }
+
+        List<FinishedResults> unSyncedResults = dbHelper.getUnsyncedFinishedResults();
+        if(unSyncedResults.size() > 0) {
+            syncInspectionIcon.setBackgroundResource(R.drawable.ic_non_sync);
+        } else {
+            syncInspectionIcon.setBackgroundResource(R.drawable.ic_check_green);
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        final LoadingDialog loadingDialog = new LoadingDialog(getActivity());
+        loadingDialog.startingLoadingDialog();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loadingDialog.dismissDialog();
+            }
+        }, 5000);
+        Intent intent = new Intent(mContext, SyncDataProcess.class);
+        intent.putExtra(SyncDataProcess.SYNC_DATA_LISTENER, new ResultReceiver(new Handler()) {
+            @Override
+            protected void onReceiveResult(int resultCode, Bundle resultData) {
+                super.onReceiveResult(resultCode, resultData);
+                if (resultCode == Activity.RESULT_OK) {
+                    boolean positionsSynced = resultData.getBoolean("positions");
+                    if(positionsSynced) syncPositionIcon.setBackgroundResource(R.drawable.ic_check_green);
+                    boolean wiretypesSynced = resultData.getBoolean("wiretypes");
+                    if(wiretypesSynced) syncRopeTypesIcon.setBackgroundResource(R.drawable.ic_check_green);
+                    boolean wiresSynced = resultData.getBoolean("wires");
+                    if(wiresSynced) syncRopesIcon.setBackgroundResource(R.drawable.ic_check_green);
+                    boolean inspectionsSynced = resultData.getBoolean("inspections");
+                    if(inspectionsSynced) syncInspectionIcon.setBackgroundResource(R.drawable.ic_check_green);
+                    boolean finishedResultsSynced = resultData.getBoolean("finishedResults");
+                    boolean resultsSynced = resultData.getBoolean("positions");
+                    if(finishedResultsSynced && resultsSynced) syncDeletedIcon.setBackgroundResource(R.drawable.ic_check_green);
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            loadingDialog.dismissDialog();
+                        }
+                    }, 0);
+                    Toast.makeText(getActivity(), "Synchronization completed.", Toast.LENGTH_LONG).show();
+                } else {
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            loadingDialog.dismissDialog();
+                        }
+                    }, 0);
+                    Toast.makeText(getActivity(), "Synchronization failed.", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+        mContext.startService(intent);
+    }
+}
